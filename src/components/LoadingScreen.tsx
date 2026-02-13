@@ -33,14 +33,6 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
           exit={{ opacity: 0 }}
           transition={{ duration: 0.6 }}
         >
-          {/* Scanline effect */}
-          <div className="pointer-events-none absolute inset-0 overflow-hidden opacity-[0.03]">
-            <div
-              className="absolute left-0 h-[2px] w-full bg-primary"
-              style={{ animation: "scanline 3s linear infinite" }}
-            />
-          </div>
-
           <motion.h1
             className="font-mono text-3xl font-bold tracking-[0.3em] text-foreground sm:text-5xl md:text-6xl"
             initial={{ opacity: 0 }}

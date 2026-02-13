@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import LoadingScreen from "@/components/LoadingScreen";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
+import TechStrip from "@/components/TechStrip";
 import ExperienceSection from "@/components/ExperienceSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
@@ -19,6 +20,7 @@ const Index = () => {
           <Navbar />
           <main>
             <HeroSection />
+            <TechStrip />
             <ExperienceSection />
             <ProjectsSection />
             <ContactSection />

@@ -1,88 +1,82 @@
 import { motion } from "framer-motion";
-import {
-  Server, Database, Container, GitBranch, Cloud, Cpu, Terminal,
-  Braces, Layers, Workflow, Cable, Lock, Gauge, Boxes
-} from "lucide-react";
-import TechIcon from "./TechIcon";
-
-const techStack = [
-  { icon: Braces, label: "Java" },
-  { icon: Server, label: "Spring" },
-  { icon: Terminal, label: "Go" },
-  { icon: Cpu, label: "Python" },
-  { icon: Database, label: "MySQL" },
-  { icon: Database, label: "Postgres" },
-  { icon: Gauge, label: "Redis" },
-  { icon: Workflow, label: "Kafka" },
-  { icon: Cable, label: "Pulsar" },
-  { icon: Container, label: "Docker" },
-  { icon: Boxes, label: "K8s" },
-  { icon: Cloud, label: "Azure" },
-  { icon: GitBranch, label: "Git" },
-  { icon: Layers, label: "REST" },
-  { icon: Lock, label: "Auth" },
-];
+import { GraduationCap } from "lucide-react";
+import bannerImg from "@/assets/banner.jpeg";
 
 const container = {
   hidden: { opacity: 0 },
-  show: { opacity: 1, transition: { staggerChildren: 0.04, delayChildren: 0.3 } },
+  show: { opacity: 1, transition: { staggerChildren: 0.08, delayChildren: 0.2 } },
 };
 const item = {
   hidden: { opacity: 0, y: 16 },
   show: { opacity: 1, y: 0 },
 };
 
+const education = [
+  { degree: "B.Sc. Computer Science", school: "Maastricht University, NL", period: "2023 – 2026" },
+  { degree: "B.Sc. Economics", school: "Central Univ. of Finance & Economics, CN", period: "2016 – 2020" },
+];
+
 const HeroSection = () => (
-  <section id="about" className="relative flex min-h-screen flex-col justify-center px-6 pt-20 sm:px-12 lg:px-24">
-    {/* Grid bg */}
-    <div
-      className="pointer-events-none absolute inset-0 opacity-[0.04]"
-      style={{
-        backgroundImage:
-          "linear-gradient(hsl(175,60%,45%) 1px, transparent 1px), linear-gradient(90deg, hsl(175,60%,45%) 1px, transparent 1px)",
-        backgroundSize: "60px 60px",
-      }}
-    />
+  <section id="about" className="relative pt-16">
+    {/* Banner */}
+    <div className="relative h-52 w-full overflow-hidden sm:h-64 md:h-72">
+      <img
+        src={bannerImg}
+        alt="Banner"
+        className="h-full w-full object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
+    </div>
 
-    <motion.div
-      className="relative z-10 max-w-3xl"
-      variants={container}
-      initial="hidden"
-      animate="show"
-    >
-      <motion.p variants={item} className="font-mono text-sm tracking-widest text-primary">
-        HI, I'M
-      </motion.p>
-      <motion.h1 variants={item} className="mt-2 text-4xl font-bold tracking-tight text-foreground sm:text-6xl">
-        Xuhan Zhuang
-      </motion.h1>
-      <motion.p variants={item} className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-        Backend Software Engineer who builds scalable distributed systems, high-concurrency services, and data-intensive
-        applications. Passionate about clean architecture, performance optimization, and everything behind the API.
-      </motion.p>
-
-      {/* Education — two simple lines */}
-      <motion.div variants={item} className="mt-6 flex flex-col gap-1 border-l-2 border-primary/30 pl-4">
-        <p className="text-sm text-foreground">
-          <span className="font-semibold">B.Sc. Computer Science</span>{" "}
-          <span className="text-muted-foreground">— Maastricht University, NL · 2023–2026</span>
-        </p>
-        <p className="text-sm text-foreground">
-          <span className="font-semibold">B.Sc. Economics</span>{" "}
-          <span className="text-muted-foreground">— Central Univ. of Finance & Economics, CN · 2016–2020</span>
-        </p>
-      </motion.div>
-
-      {/* Tech stack icons */}
-      <motion.div variants={item} className="mt-10">
-        <p className="mb-4 font-mono text-xs uppercase tracking-widest text-muted-foreground">Tech Stack</p>
-        <div className="flex flex-wrap gap-4">
-          {techStack.map((t) => (
-            <TechIcon key={t.label} icon={t.icon} label={t.label} />
-          ))}
+    {/* Content area */}
+    <div className="relative px-6 sm:px-12 lg:px-24">
+      {/* Profile picture overlapping banner */}
+      <div className="-mt-16 mb-6 flex items-end gap-6 sm:-mt-20">
+        <div className="h-28 w-28 shrink-0 overflow-hidden rounded-full border-4 border-background bg-muted shadow-lg sm:h-36 sm:w-36">
+          {/* Placeholder avatar */}
+          <div className="flex h-full w-full items-center justify-center text-3xl font-bold text-muted-foreground sm:text-4xl">
+            XZ
+          </div>
         </div>
+      </div>
+
+      <motion.div
+        className="max-w-3xl pb-16"
+        variants={container}
+        initial="hidden"
+        animate="show"
+      >
+        <motion.p variants={item} className="font-mono text-sm tracking-widest text-primary">
+          HI, I'M
+        </motion.p>
+        <motion.h1 variants={item} className="mt-2 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
+          Xuhan Zhuang
+        </motion.h1>
+        <motion.p variants={item} className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+          Backend Software Engineer who builds scalable distributed systems, high-concurrency services, and data-intensive
+          applications. Passionate about clean architecture, performance optimization, and everything behind the API.
+        </motion.p>
+
+        {/* Education Cards */}
+        <motion.div variants={item} className="mt-8 grid gap-3 sm:grid-cols-2">
+          {education.map((edu) => (
+            <div
+              key={edu.degree}
+              className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm"
+            >
+              <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                <GraduationCap className="h-5 w-5 text-primary" />
+              </div>
+              <div>
+                <p className="text-sm font-semibold text-foreground">{edu.degree}</p>
+                <p className="text-xs text-muted-foreground">{edu.school}</p>
+                <p className="mt-1 font-mono text-xs text-muted-foreground">{edu.period}</p>
+              </div>
+            </div>
+          ))}
+        </motion.div>
       </motion.div>
-    </motion.div>
+    </div>
   </section>
 );
 
