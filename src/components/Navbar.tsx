@@ -9,8 +9,8 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-4 backdrop-blur-md sm:px-12"
-      style={{ background: "hsla(230, 25%, 5%, 0.85)" }}
+      className="fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-6 py-4 backdrop-blur-md border-b border-border/50 sm:px-12"
+      style={{ background: "hsla(36, 33%, 97%, 0.9)" }}
       initial={{ y: -60, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ delay: 0.2, duration: 0.5 }}
