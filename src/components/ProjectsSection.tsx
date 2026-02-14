@@ -27,7 +27,7 @@ const projects = [
 const ProjectsSection = () => (
   <section id="projects" className="px-6 py-24 sm:px-12 lg:px-24">
     <motion.h2
-      className="font-mono text-xs uppercase tracking-[0.3em] text-primary"
+      className="font-mono text-xl uppercase tracking-[0.3em] text-primary"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}

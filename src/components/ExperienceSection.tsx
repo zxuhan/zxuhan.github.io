@@ -8,7 +8,7 @@ const experiences = [
     company: "ASML",
     location: "Veldhoven, NL",
     role: "Software Engineer Intern",
-    period: "Sep 2025 – Present",
+    period: "Jan 2026 – Present",
     logo: asmlLogo,
     bullets: [
       "Developed full-stack automation platform using Spring Boot 3, React, and MySQL to replace manual Excel-based upgrade workflows, reducing generation time by 35%.",
@@ -41,7 +41,7 @@ const experiences = [
 const ExperienceSection = () => (
   <section id="experience" className="px-6 py-24 sm:px-12 lg:px-24">
     <motion.h2
-      className="font-mono text-xs uppercase tracking-[0.3em] text-primary"
+      className="font-mono text-xl uppercase tracking-[0.3em] text-primary"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -59,9 +59,7 @@ const ExperienceSection = () => (
         return (
           <motion.div
             key={exp.company}
-            className={`relative mb-16 flex flex-col last:mb-0 lg:flex-row ${
-              isLeft ? "lg:flex-row" : "lg:flex-row-reverse"
-            }`}
+            className="relative mb-16 flex flex-col last:mb-0 lg:flex-row"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -78,24 +76,55 @@ const ExperienceSection = () => (
               </div>
             </div>
 
-            {/* Content card */}
-            <div className={`ml-16 lg:ml-0 lg:w-[calc(50%-3rem)] ${isLeft ? "lg:pr-0 lg:mr-auto" : "lg:pl-0 lg:ml-auto"}`}>
-              <div className="rounded-xl border border-border bg-card p-5 shadow-sm transition-shadow hover:shadow-md">
-                <p className="font-mono text-xs text-muted-foreground">{exp.period}</p>
-                <h3 className="mt-1 text-lg font-semibold text-foreground">
-                  {exp.role}{" "}
-                  <span className="text-primary">@ {exp.company}</span>
-                </h3>
-                <p className="text-sm text-muted-foreground">{exp.location}</p>
-                <ul className="mt-3 space-y-2">
-                  {exp.bullets.map((b, j) => (
-                    <li key={j} className="flex gap-2 text-sm leading-relaxed text-muted-foreground">
-                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary/60" />
-                      {b}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+            {/* Left side - content for left companies, period for right companies */}
+            <div className={`ml-16 lg:ml-0 lg:w-[calc(50%-3rem)] lg:mr-auto ${isLeft ? "" : "hidden lg:flex lg:pt-5 lg:justify-end"}`}>
+              {isLeft ? (
+                <div className="rounded-xl border border-border bg-card p-5 shadow-sm transition-shadow hover:shadow-md">
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {exp.role}{" "}
+                    <span className="text-primary">@ {exp.company}</span>
+                  </h3>
+                  <p className="text-sm text-muted-foreground">{exp.location}</p>
+                  <ul className="mt-3 space-y-2">
+                    {exp.bullets.map((b, j) => (
+                      <li key={j} className="flex gap-2 text-sm leading-relaxed text-muted-foreground">
+                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary/60" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : (
+                <p className="font-mono text-sm text-muted-foreground lg:pr-8">{exp.period}</p>
+              )}
+            </div>
+
+            {/* Right side - period for left companies, content for right companies */}
+            <div className={`lg:w-[calc(50%-3rem)] lg:ml-auto ${isLeft ? "hidden lg:flex lg:pt-5 lg:pl-8" : "ml-16 lg:ml-0"}`}>
+              {isLeft ? (
+                <p className="font-mono text-sm text-muted-foreground">{exp.period}</p>
+              ) : (
+                <div className="rounded-xl border border-border bg-card p-5 shadow-sm transition-shadow hover:shadow-md">
+                  <h3 className="text-lg font-semibold text-foreground">
+                    {exp.role}{" "}
+                    <span className="text-primary">@ {exp.company}</span>
+                  </h3>
+                  <p className="text-sm text-muted-foreground">{exp.location}</p>
+                  <ul className="mt-3 space-y-2">
+                    {exp.bullets.map((b, j) => (
+                      <li key={j} className="flex gap-2 text-sm leading-relaxed text-muted-foreground">
+                        <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary/60" />
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            {/* Mobile: period shown below content */}
+            <div className="ml-16 mt-2 lg:hidden">
+              <p className="font-mono text-xs text-muted-foreground">{exp.period}</p>
             </div>
           </motion.div>
         );

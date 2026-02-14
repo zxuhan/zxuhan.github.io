@@ -11,7 +11,7 @@ const techs = [
 ];
 
 const TechStrip = () => (
-  <div className="flex justify-center px-6 py-10">
+  <div className="flex justify-center px-6 py-6">
     <div className="flex flex-wrap justify-center gap-6 sm:gap-8">
       {techs.map((t, i) => (
         <motion.div
