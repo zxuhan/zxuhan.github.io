@@ -6,7 +6,7 @@ const experiences = [
     location: "Veldhoven, NL",
     role: "Software Engineer Intern",
     period: "Jan 2026 – Present",
-    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@latest/icons/asml.svg",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/7/7f/ASML_Holding_N.V._logo.svg",
     bullets: [
       "Developed full-stack automation platform using Spring Boot 3, React, and MySQL to replace manual Excel-based upgrade workflows, reducing generation time by 35%.",
       "Implemented constraint programming (CP-SAT solver) and backtracking algorithms with domain-specific heuristics for industrial upgrade dependency resolution.",
@@ -28,7 +28,7 @@ const experiences = [
     location: "Beijing, CN",
     role: "Data Analytics Consulting Intern",
     period: "Jul 2019 – Oct 2019",
-    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@latest/icons/pwc.svg",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/PricewaterhouseCoopers_Logo.svg",
     bullets: [
       "Automated data processing workflows using Python with optimized SQL queries, reducing analysis time by 30% across 5 consulting projects.",
     ],
@@ -64,12 +64,18 @@ const ExperienceSection = () => (
             viewport={{ once: true }}
             transition={{ delay: i * 0.15 }}
           >
-            {/* Center dot + logo */}
+            {/* Center dot + company logo */}
             <div className="absolute left-6 -translate-x-1/2 lg:left-1/2 z-10">
-              <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary bg-card shadow-md">
-                <span className="text-xs font-bold text-primary font-mono">
-                  {exp.company.slice(0, 2).toUpperCase()}
-                </span>
+              <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary bg-card shadow-md overflow-hidden">
+                <img
+                  src={exp.logo}
+                  alt={`${exp.company} logo`}
+                  className="h-7 w-7 object-contain"
+                  onError={(e) => {
+                    e.currentTarget.style.display = 'none';
+                    e.currentTarget.parentElement!.innerHTML = `<span class="text-xs font-bold text-primary font-mono">${exp.company.slice(0, 2).toUpperCase()}</span>`;
+                  }}
+                />
               </div>
             </div>
 
