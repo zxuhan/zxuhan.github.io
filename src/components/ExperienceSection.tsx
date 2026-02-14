@@ -6,6 +6,7 @@ const experiences = [
     location: "Veldhoven, NL",
     role: "Software Engineer Intern",
     period: "Jan 2026 – Present",
+    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@latest/icons/asml.svg",
     bullets: [
       "Developed full-stack automation platform using Spring Boot 3, React, and MySQL to replace manual Excel-based upgrade workflows, reducing generation time by 35%.",
       "Implemented constraint programming (CP-SAT solver) and backtracking algorithms with domain-specific heuristics for industrial upgrade dependency resolution.",
@@ -16,6 +17,7 @@ const experiences = [
     location: "Beijing, CN",
     role: "Data Engineer",
     period: "Oct 2020 – Dec 2021",
+    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@latest/icons/deloitte.svg",
     bullets: [
       "Built ETL pipelines using Python and Java to process financial datasets into PostgreSQL, reducing manual operation time by 26%.",
       "Collaborated with IT audit teams to assess database integrity, writing SQL queries and data validation frameworks ensuring 100% accuracy.",
@@ -26,6 +28,7 @@ const experiences = [
     location: "Beijing, CN",
     role: "Data Analytics Consulting Intern",
     period: "Jul 2019 – Oct 2019",
+    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@latest/icons/pwc.svg",
     bullets: [
       "Automated data processing workflows using Python with optimized SQL queries, reducing analysis time by 30% across 5 consulting projects.",
     ],
@@ -43,35 +46,55 @@ const ExperienceSection = () => (
       Experience
     </motion.h2>
 
-    <div className="relative mt-10 border-l border-border pl-8">
-      {experiences.map((exp, i) => (
-        <motion.div
-          key={exp.company}
-          className="relative mb-12 last:mb-0"
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: i * 0.15 }}
-        >
-          {/* Dot */}
-          <div className="absolute -left-[2.55rem] top-1.5 h-3 w-3 rounded-full border-2 border-primary bg-background" />
+    {/* Alternating timeline */}
+    <div className="relative mt-14">
+      {/* Center line */}
+      <div className="absolute left-6 top-0 bottom-0 w-px bg-border lg:left-1/2" />
 
-          <p className="font-mono text-xs text-muted-foreground">{exp.period}</p>
-          <h3 className="mt-1 text-lg font-semibold text-foreground">
-            {exp.role}{" "}
-            <span className="text-primary">@ {exp.company}</span>
-          </h3>
-          <p className="text-sm text-muted-foreground">{exp.location}</p>
-          <ul className="mt-3 space-y-2">
-            {exp.bullets.map((b, j) => (
-              <li key={j} className="flex gap-2 text-sm leading-relaxed text-muted-foreground">
-                <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary/60" />
-                {b}
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-      ))}
+      {experiences.map((exp, i) => {
+        const isLeft = i % 2 === 0;
+        return (
+          <motion.div
+            key={exp.company}
+            className={`relative mb-16 flex flex-col last:mb-0 lg:flex-row ${
+              isLeft ? "lg:flex-row" : "lg:flex-row-reverse"
+            }`}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.15 }}
+          >
+            {/* Center dot + logo */}
+            <div className="absolute left-6 -translate-x-1/2 lg:left-1/2 z-10">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-primary bg-card shadow-md">
+                <span className="text-xs font-bold text-primary font-mono">
+                  {exp.company.slice(0, 2).toUpperCase()}
+                </span>
+              </div>
+            </div>
+
+            {/* Content card */}
+            <div className={`ml-16 lg:ml-0 lg:w-[calc(50%-3rem)] ${isLeft ? "lg:pr-0 lg:mr-auto" : "lg:pl-0 lg:ml-auto"}`}>
+              <div className="rounded-xl border border-border bg-card p-5 shadow-sm transition-shadow hover:shadow-md">
+                <p className="font-mono text-xs text-muted-foreground">{exp.period}</p>
+                <h3 className="mt-1 text-lg font-semibold text-foreground">
+                  {exp.role}{" "}
+                  <span className="text-primary">@ {exp.company}</span>
+                </h3>
+                <p className="text-sm text-muted-foreground">{exp.location}</p>
+                <ul className="mt-3 space-y-2">
+                  {exp.bullets.map((b, j) => (
+                    <li key={j} className="flex gap-2 text-sm leading-relaxed text-muted-foreground">
+                      <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-primary/60" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </motion.div>
+        );
+      })}
     </div>
   </section>
 );

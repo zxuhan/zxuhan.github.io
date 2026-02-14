@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { GraduationCap } from "lucide-react";
-import bannerImg from "@/assets/banner.jpeg";
 
 const container = {
   hidden: { opacity: 0 },
@@ -17,66 +16,64 @@ const education = [
 ];
 
 const HeroSection = () => (
-  <section id="about" className="relative pt-16">
-    {/* Banner */}
-    <div className="relative h-52 w-full overflow-hidden sm:h-64 md:h-72">
-      <img
-        src={bannerImg}
-        alt="Banner"
-        className="h-full w-full object-cover"
-      />
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background" />
-    </div>
+  <section id="about" className="px-6 py-24 sm:px-12 lg:px-24">
+    <motion.div
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+    >
+      <motion.p variants={item} className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
+        About
+      </motion.p>
 
-    {/* Content area */}
-    <div className="relative px-6 sm:px-12 lg:px-24">
-      {/* Profile picture overlapping banner */}
-      <div className="-mt-16 mb-6 flex items-end gap-6 sm:-mt-20">
-        <div className="h-28 w-28 shrink-0 overflow-hidden rounded-full border-4 border-background bg-muted shadow-lg sm:h-36 sm:w-36">
-          {/* Placeholder avatar */}
-          <div className="flex h-full w-full items-center justify-center text-3xl font-bold text-muted-foreground sm:text-4xl">
-            XZ
-          </div>
-        </div>
-      </div>
+      <div className="mt-10 flex flex-col gap-10 lg:flex-row lg:gap-16">
+        {/* Left side — about + education (slightly larger) */}
+        <motion.div variants={item} className="flex-[1.2]">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            Xuhan Zhuang
+          </h2>
+          <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
+            Backend Software Engineer who builds scalable distributed systems, high-concurrency services, and data-intensive
+            applications. Passionate about clean architecture, performance optimization, and everything behind the API.
+          </p>
 
-      <motion.div
-        className="max-w-3xl pb-16"
-        variants={container}
-        initial="hidden"
-        animate="show"
-      >
-        <motion.p variants={item} className="font-mono text-sm tracking-widest text-primary">
-          HI, I'M
-        </motion.p>
-        <motion.h1 variants={item} className="mt-2 text-4xl font-bold tracking-tight text-foreground sm:text-5xl">
-          Xuhan Zhuang
-        </motion.h1>
-        <motion.p variants={item} className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Backend Software Engineer who builds scalable distributed systems, high-concurrency services, and data-intensive
-          applications. Passionate about clean architecture, performance optimization, and everything behind the API.
-        </motion.p>
-
-        {/* Education Cards */}
-        <motion.div variants={item} className="mt-8 grid gap-3 sm:grid-cols-2">
-          {education.map((edu) => (
-            <div
-              key={edu.degree}
-              className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm"
-            >
-              <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10">
-                <GraduationCap className="h-5 w-5 text-primary" />
+          {/* Education Cards */}
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            {education.map((edu) => (
+              <div
+                key={edu.degree}
+                className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-sm"
+              >
+                <div className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-primary/10">
+                  <GraduationCap className="h-5 w-5 text-primary" />
+                </div>
+                <div>
+                  <p className="text-sm font-semibold text-foreground">{edu.degree}</p>
+                  <p className="text-xs text-muted-foreground">{edu.school}</p>
+                  <p className="mt-1 font-mono text-xs text-muted-foreground">{edu.period}</p>
+                </div>
               </div>
-              <div>
-                <p className="text-sm font-semibold text-foreground">{edu.degree}</p>
-                <p className="text-xs text-muted-foreground">{edu.school}</p>
-                <p className="mt-1 font-mono text-xs text-muted-foreground">{edu.period}</p>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Right side — portrait frame */}
+        <motion.div variants={item} className="flex flex-1 items-start justify-center lg:justify-end">
+          <div className="relative">
+            {/* Decorative border frame */}
+            <div className="absolute -inset-3 rounded-2xl border-2 border-primary/20" />
+            <div className="h-72 w-56 overflow-hidden rounded-xl border border-border bg-muted shadow-lg sm:h-80 sm:w-64">
+              {/* Placeholder portrait */}
+              <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted-foreground">
+                <div className="text-5xl font-bold">XZ</div>
+                <p className="font-mono text-xs">your photo here</p>
               </div>
             </div>
-          ))}
+          </div>
         </motion.div>
-      </motion.div>
-    </div>
+      </div>
+    </motion.div>
   </section>
 );
 
