@@ -1,12 +1,15 @@
 import { motion } from "framer-motion";
+import asmlLogo from "@/assets/asml_logo.jpeg";
+import deloitteLogo from "@/assets/deloitte_logo.jpeg";
+import pwcLogo from "@/assets/pwc_logo.jpeg";
 
 const experiences = [
   {
     company: "ASML",
     location: "Veldhoven, NL",
     role: "Software Engineer Intern",
-    period: "Jan 2026 – Present",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/7/7f/ASML_Holding_N.V._logo.svg",
+    period: "Sep 2025 – Present",
+    logo: asmlLogo,
     bullets: [
       "Developed full-stack automation platform using Spring Boot 3, React, and MySQL to replace manual Excel-based upgrade workflows, reducing generation time by 35%.",
       "Implemented constraint programming (CP-SAT solver) and backtracking algorithms with domain-specific heuristics for industrial upgrade dependency resolution.",
@@ -17,7 +20,7 @@ const experiences = [
     location: "Beijing, CN",
     role: "Data Engineer",
     period: "Oct 2020 – Dec 2021",
-    logo: "https://cdn.jsdelivr.net/gh/simple-icons/simple-icons@latest/icons/deloitte.svg",
+    logo: deloitteLogo,
     bullets: [
       "Built ETL pipelines using Python and Java to process financial datasets into PostgreSQL, reducing manual operation time by 26%.",
       "Collaborated with IT audit teams to assess database integrity, writing SQL queries and data validation frameworks ensuring 100% accuracy.",
@@ -28,7 +31,7 @@ const experiences = [
     location: "Beijing, CN",
     role: "Data Analytics Consulting Intern",
     period: "Jul 2019 – Oct 2019",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/0/05/PricewaterhouseCoopers_Logo.svg",
+    logo: pwcLogo,
     bullets: [
       "Automated data processing workflows using Python with optimized SQL queries, reducing analysis time by 30% across 5 consulting projects.",
     ],
@@ -70,11 +73,7 @@ const ExperienceSection = () => (
                 <img
                   src={exp.logo}
                   alt={`${exp.company} logo`}
-                  className="h-7 w-7 object-contain"
-                  onError={(e) => {
-                    e.currentTarget.style.display = 'none';
-                    e.currentTarget.parentElement!.innerHTML = `<span class="text-xs font-bold text-primary font-mono">${exp.company.slice(0, 2).toUpperCase()}</span>`;
-                  }}
+                  className="h-full w-full object-cover"
                 />
               </div>
             </div>
