@@ -17,24 +17,24 @@ const HeroSection = () => (
       whileInView="show"
       viewport={{ once: true }}
     >
-      <motion.p variants={item} className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
+      <motion.p variants={item} className="font-mono text-sm uppercase tracking-[0.3em] text-primary sm:text-base">
         About
       </motion.p>
 
-      <div className="mt-10 flex flex-col gap-10 lg:flex-row lg:gap-16">
-        {/* Left side — about summary */}
-        <motion.div variants={item} className="flex-[1.2]">
-          <p className="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground sm:text-xl">
+      <div className="mt-8 flex flex-col items-center gap-8 lg:flex-row lg:items-start lg:gap-12">
+        {/* Left side — about summary (larger) */}
+        <motion.div variants={item} className="flex-[1.3]">
+          <p className="mt-4 max-w-xl text-xl leading-relaxed text-muted-foreground sm:text-2xl">
             Backend Software Engineer who builds scalable distributed systems, high-concurrency services, and data-intensive
             applications. Passionate about clean architecture, performance optimization, and everything behind the API.
           </p>
         </motion.div>
 
-        {/* Right side — portrait frame, smaller and upper-right */}
-        <motion.div variants={item} className="flex flex-1 items-start justify-center lg:justify-end lg:-mt-4">
+        {/* Right side — portrait frame */}
+        <motion.div variants={item} className="flex flex-1 items-start justify-center lg:justify-center lg:-mt-2">
           <div className="relative">
             <div className="absolute -inset-2 rounded-xl border-2 border-primary/20" />
-            <div className="h-52 w-40 overflow-hidden rounded-lg border border-border bg-muted shadow-lg sm:h-60 sm:w-44">
+            <div className="h-48 w-36 overflow-hidden rounded-lg border border-border bg-muted shadow-lg sm:h-56 sm:w-40">
               {/* Placeholder portrait */}
               <div className="flex h-full w-full flex-col items-center justify-center gap-2 text-muted-foreground">
                 <div className="text-4xl font-bold">XZ</div>
