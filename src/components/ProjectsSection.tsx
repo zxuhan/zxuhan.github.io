@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ExternalLink } from "lucide-react";
 
 const projects = [
   {
@@ -38,49 +37,66 @@ const ProjectsSection = () => (
 
     <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {projects.map((p, i) => (
-        <motion.a
+        <motion.div
           key={p.title}
-          href={p.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group block overflow-hidden rounded-lg border border-border bg-card transition-colors hover:border-primary/40"
+          className="group perspective-[1000px]"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: i * 0.1 }}
-          whileHover={{
-            y: -4,
-            rotate: [0, -0.5, 0.5, -0.3, 0],
-            transition: { rotate: { duration: 0.4 }, y: { duration: 0.2 } },
-          }}
         >
-          {/* Cover image */}
-          <div className="relative h-40 overflow-hidden">
-            <img
-              src={p.image}
-              alt={p.title}
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-card to-transparent" />
-            <ExternalLink className="absolute right-3 top-3 h-4 w-4 text-foreground/60 opacity-0 transition-opacity group-hover:opacity-100" />
-          </div>
+          <div className="relative h-80 w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
+            {/* Front — Cover */}
+            <div className="absolute inset-0 overflow-hidden rounded-xl border border-border bg-card shadow-sm [backface-visibility:hidden]">
+              <img
+                src={p.image}
+                alt={p.title}
+                className="h-full w-full object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-5">
+                <h3 className="text-lg font-semibold text-foreground">{p.title}</h3>
+                <div className="mt-2 flex flex-wrap gap-1.5">
+                  {p.tags.map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-full border border-border bg-secondary px-2 py-0.5 font-mono text-[10px] text-secondary-foreground"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
 
-          <div className="p-5">
-            <h3 className="text-base font-semibold text-foreground">{p.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground line-clamp-3">{p.desc}</p>
-            <div className="mt-3 flex flex-wrap gap-1.5">
-              {p.tags.map((t) => (
-                <span
-                  key={t}
-                  className="rounded-full border border-border bg-secondary px-2 py-0.5 font-mono text-[10px] text-secondary-foreground"
+            {/* Back — Description */}
+            <div className="absolute inset-0 flex flex-col justify-center overflow-hidden rounded-xl border border-border bg-card p-6 shadow-sm [backface-visibility:hidden] [transform:rotateY(180deg)]">
+              <h3 className="text-lg font-semibold text-foreground">{p.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {p.tags.map((t) => (
+                  <span
+                    key={t}
+                    className="rounded-full border border-border bg-secondary px-2 py-0.5 font-mono text-[10px] text-secondary-foreground"
+                  >
+                    {t}
+                  </span>
+                ))}
+              </div>
+              {p.link !== "#" && (
+                <a
+                  href={p.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-4 inline-flex items-center gap-1 font-mono text-xs text-primary hover:underline"
                 >
-                  {t}
-                </span>
-              ))}
+                  View Project →
+                </a>
+              )}
             </div>
           </div>
-        </motion.a>
+        </motion.div>
       ))}
     </div>
   </section>

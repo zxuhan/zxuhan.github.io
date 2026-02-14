@@ -2,6 +2,7 @@ import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import LoadingScreen from "@/components/LoadingScreen";
 import Navbar from "@/components/Navbar";
+import HeroPage from "@/components/HeroPage";
 import HeroSection from "@/components/HeroSection";
 import TechStrip from "@/components/TechStrip";
 import ExperienceSection from "@/components/ExperienceSection";
@@ -19,6 +20,7 @@ const Index = () => {
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
           <Navbar />
           <main>
+            <HeroPage />
             <HeroSection />
             <TechStrip />
             <ExperienceSection />
