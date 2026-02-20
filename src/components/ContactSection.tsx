@@ -1,7 +1,7 @@
 import { Mail, Linkedin, Github } from "lucide-react";
 
 const ContactSection = () => (
-  <section id="contact" className="border-t border-border px-6 py-20 sm:px-12 lg:px-24">
+  <section id="contact" className="border-t border-border px-6 py-20 sm:px-12 lg:px-32">
     <p className="font-mono text-xl uppercase tracking-[0.3em] text-primary">Contact</p>
     <p className="mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground">
       Always open to connections and opportunities. Feel free to reach out.

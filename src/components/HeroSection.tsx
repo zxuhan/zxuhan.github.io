@@ -10,7 +10,7 @@ const item = {
 };
 
 const HeroSection = () => (
-  <section id="about" className="px-6 py-24 sm:px-12 lg:px-24">
+  <section id="about" className="px-6 py-24 sm:px-12 lg:px-32">
     <motion.div
       variants={container}
       initial="hidden"

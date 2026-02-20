@@ -39,7 +39,7 @@ const experiences = [
 ];
 
 const ExperienceSection = () => (
-  <section id="experience" className="px-6 py-24 sm:px-12 lg:px-24">
+  <section id="experience" className="px-6 py-24 sm:px-12 lg:px-32">
     <motion.h2
       className="font-mono text-xl uppercase tracking-[0.3em] text-primary"
       initial={{ opacity: 0 }}
