@@ -82,7 +82,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
                 animate={{ opacity: phase === "reveal" ? 1 : 0 }}
                 transition={{ duration: 0.4 }}
               >
-                BACKEND SOFTWARE ENGINEER
+                SOFTWARE ENGINEER
               </motion.p>
             </>
           )}

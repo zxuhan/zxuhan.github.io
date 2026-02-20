@@ -19,7 +19,7 @@ const experiences = [
     company: "Deloitte",
     location: "Beijing, CN",
     role: "Data Engineer",
-    period: "Oct 2020 – Dec 2021",
+    period: "Oct 2020 – Oct 2021",
     logo: deloitteLogo,
     bullets: [
       "Built ETL pipelines using Python and Java to process financial datasets into PostgreSQL, reducing manual operation time by 26%.",

@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Github } from "lucide-react";
 
 const projects = [
   {
@@ -7,6 +8,7 @@ const projects = [
     tags: ["Spring Boot 3", "LangChain4j", "Redis", "PostgreSQL", "React"],
     image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=400&fit=crop",
     link: "#",
+    github: "https://github.com/zxuhan/AI-code-platform",
   },
   {
     title: "High-Performance Like System",
@@ -14,6 +16,7 @@ const projects = [
     tags: ["Spring Boot 3", "Redis", "Apache Pulsar", "MySQL"],
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=400&fit=crop",
     link: "#",
+    github: "https://github.com/zxuhan/like-app-backend",
   },
   {
     title: "Maastricht Bus Scheduling",
@@ -21,6 +24,7 @@ const projects = [
     tags: ["JavaFX", "A* Algorithm", "MySQL", "GTFS"],
     image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=400&fit=crop",
     link: "#",
+    github: "https://github.com/zxuhan/Maastrchit-bus-router",
   },
 ];
 
@@ -39,42 +43,39 @@ const ProjectsSection = () => (
       {projects.map((p, i) => (
         <motion.div
           key={p.title}
-          className="group perspective-[1000px]"
+          className="flex"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: i * 0.1 }}
         >
-          <div className="relative h-80 w-full transition-transform duration-700 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
-            {/* Front — Cover */}
-            <div className="absolute inset-0 overflow-hidden rounded-xl border border-border bg-card shadow-sm [backface-visibility:hidden]">
+          <div className="h-full flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm w-full">
+            {/* Image — top half */}
+            <div className="relative">
               <img
                 src={p.image}
                 alt={p.title}
-                className="h-full w-full object-cover"
+                className="h-52 w-full object-cover"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-card via-card/40 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-5">
-                <h3 className="text-lg font-semibold text-foreground">{p.title}</h3>
-                <div className="mt-2 flex flex-wrap gap-1.5">
-                  {p.tags.map((t) => (
-                    <span
-                      key={t}
-                      className="rounded-full border border-border bg-secondary px-2 py-0.5 font-mono text-[10px] text-secondary-foreground"
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              {/* GitHub icon — top-right over image */}
+              <a
+                href={p.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="absolute top-3 right-3 z-10 flex h-8 w-8 items-center justify-center rounded-full bg-black/40 backdrop-blur-sm border border-white/20 shadow-md transition-colors hover:bg-primary hover:text-primary-foreground hover:border-primary"
+                aria-label="GitHub"
+                onClick={(e) => { if (p.github === "#") e.preventDefault(); }}
+              >
+                <Github className="h-4 w-4 text-white" />
+              </a>
             </div>
 
-            {/* Back — Description */}
-            <div className="absolute inset-0 flex flex-col justify-center overflow-hidden rounded-xl border border-border bg-card p-6 shadow-sm [backface-visibility:hidden] [transform:rotateY(180deg)]">
+            {/* Description — bottom half */}
+            <div className="flex-1 p-5">
               <h3 className="text-lg font-semibold text-foreground">{p.title}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
-              <div className="mt-4 flex flex-wrap gap-1.5">
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+              <div className="mt-3 flex flex-wrap gap-1.5">
                 {p.tags.map((t) => (
                   <span
                     key={t}
@@ -84,16 +85,6 @@ const ProjectsSection = () => (
                   </span>
                 ))}
               </div>
-              {p.link !== "#" && (
-                <a
-                  href={p.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-flex items-center gap-1 font-mono text-xs text-primary hover:underline"
-                >
-                  View Project →
-                </a>
-              )}
             </div>
           </div>
         </motion.div>
