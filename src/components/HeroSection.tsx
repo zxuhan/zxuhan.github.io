@@ -17,15 +17,14 @@ const HeroSection = () => (
       whileInView="show"
       viewport={{ once: true }}
     >
-      <motion.p variants={item} className="font-mono text-xl uppercase tracking-[0.3em] text-primary">
+      <motion.p variants={item} className="font-mono text-2xl uppercase tracking-[0.3em] text-primary">
         About
       </motion.p>
 
       <div className="mt-8 flex flex-col">
         <motion.div variants={item}>
           <p className="max-w-2xl text-xl leading-relaxed text-muted-foreground sm:text-2xl">
-            Backend Software Engineer who builds scalable distributed systems, high-concurrency services, and data-intensive
-            applications. Passionate about clean architecture, performance optimization, and everything behind the API.
+              I'm a software engineer focused on building systems that work at scale. My experience spans backend development, database design, and system integration across different industries. I enjoy tackling complex technical problems and turning them into reliable, efficient solutions.
           </p>
         </motion.div>
       </div>

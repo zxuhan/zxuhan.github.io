@@ -31,7 +31,7 @@ const projects = [
 const ProjectsSection = () => (
   <section id="projects" className="px-6 py-24 sm:px-12 lg:px-32">
     <motion.h2
-      className="font-mono text-xl uppercase tracking-[0.3em] text-primary"
+      className="font-mono text-2xl uppercase tracking-[0.3em] text-primary"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
@@ -73,8 +73,8 @@ const ProjectsSection = () => (
 
             {/* Description — bottom half */}
             <div className="flex-1 p-5">
-              <h3 className="text-lg font-semibold text-foreground">{p.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
+              <h3 className="text-xl font-semibold text-foreground">{p.title}</h3>
+              <p className="mt-2 text-base leading-relaxed text-muted-foreground">{p.desc}</p>
               <div className="mt-3 flex flex-wrap gap-1.5">
                 {p.tags.map((t) => (
                   <span

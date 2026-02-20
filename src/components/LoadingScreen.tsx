@@ -50,7 +50,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
         >
           {phase === "loading" ? (
             <div className="flex flex-col items-center gap-6">
-              <p className="font-mono text-xs tracking-[0.3em] text-muted-foreground">LOADING</p>
+              <p className="font-mono text-base tracking-[0.3em] text-muted-foreground">LOADING</p>
               <div className="h-px w-48 overflow-hidden rounded-full bg-border">
                 <motion.div
                   className="h-full bg-primary"
@@ -58,7 +58,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
                   transition={{ duration: 0.05 }}
                 />
               </div>
-              <p className="font-mono text-xs text-muted-foreground">{Math.round(progress)}%</p>
+              <p className="font-mono text-sm text-muted-foreground">{Math.round(progress)}%</p>
             </div>
           ) : (
             <>
@@ -77,7 +77,7 @@ const LoadingScreen = ({ onComplete }: LoadingScreenProps) => {
               </motion.h1>
 
               <motion.p
-                className="mt-4 font-mono text-xs tracking-[0.2em] text-muted-foreground sm:text-sm"
+                className="mt-4 font-mono text-sm tracking-[0.2em] text-muted-foreground sm:text-sm"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: phase === "reveal" ? 1 : 0 }}
                 transition={{ duration: 0.4 }}

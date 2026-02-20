@@ -2,8 +2,8 @@ import { Mail, Linkedin, Github } from "lucide-react";
 
 const ContactSection = () => (
   <section id="contact" className="border-t border-border px-6 py-20 sm:px-12 lg:px-32">
-    <p className="font-mono text-xl uppercase tracking-[0.3em] text-primary">Contact</p>
-    <p className="mt-4 max-w-lg text-sm leading-relaxed text-muted-foreground">
+    <p className="font-mono text-2xl uppercase tracking-[0.3em] text-primary">Contact</p>
+    <p className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground">
       Always open to connections and opportunities. Feel free to reach out.
     </p>
     <div className="mt-6 flex gap-5">
@@ -17,7 +17,7 @@ const ContactSection = () => (
         <Github className="h-5 w-5" />
       </a>
     </div>
-    <p className="mt-12 font-mono text-xs text-muted-foreground">
+    <p className="mt-12 font-mono text-base text-muted-foreground">
       © {new Date().getFullYear()} Xuhan Zhuang. Built with passion.
     </p>
   </section>
