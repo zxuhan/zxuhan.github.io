@@ -1,0 +1,50 @@
+{
+	"head": {
+		"title": "zxuhan7",
+		"description": "Author:Xuhan Zhuang,Category:Personal Page",
+		"favicon": "favicon.ico"
+	},
+	"intro": {
+		"title": "XUHAN ZHUANG",
+		"subtitle": "FRONT BACK LEFT RIGHT END ENGINEER",
+		"enter": "ENTER",
+		"supportAuthor": true,
+		"background": true
+	},
+	"main": {
+		"name": "Xuhan Zhuang",
+		"signature": "STDIN | Code | STDOUT",
+		"avatar": {
+			"link": "assets/avatar.jpg",
+			"height": "120",
+			"width": "120"
+		},
+		"ul": {
+			"first": {
+				"href": "about/",
+				"icon": "zhifeiji",
+				"text": "About"
+			},
+			"second": {
+				"href": "projects/",
+				"icon": "projects",
+				"text": "Projects"
+			},
+			"third": {
+				"href": "zxuhan7@gmail.com",
+				"icon": "email",
+				"text": "Email"
+			},
+			"fourth": {
+				"href": "https://github.com/zxuhan",
+				"icon": "github",
+				"text": "Github"
+			},
+			"fifth": {
+				"href": "https://www.linkedin.com/in/xuhan-zhuang/",
+				"icon": "linkedin",
+				"text": "LinkedIn"
+			}
+		}
+	}
+}
