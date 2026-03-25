@@ -2,11 +2,11 @@
 	"head": {
 		"title": "zxuhan7",
 		"description": "Author:Xuhan Zhuang,Category:Personal Page",
-		"favicon": "assets/favicon.ico"
+		"favicon": "assets/favicon.png"
 	},
 	"intro": {
 		"title": "XUHAN ZHUANG",
-		"subtitle": "FRONT BACK LEFT RIGHT END ENGINEER",
+		"subtitle": "Front Back Left Right End Engineer",
 		"enter": "ENTER",
 		"supportAuthor": true,
 		"background": true
@@ -31,16 +31,11 @@
 				"text": "Projects"
 			},
 			"third": {
-				"href": "zxuhan7@gmail.com",
-				"icon": "email",
-				"text": "Email"
-			},
-			"fourth": {
 				"href": "https://github.com/zxuhan",
 				"icon": "github",
 				"text": "Github"
 			},
-			"fifth": {
+			"fourth": {
 				"href": "https://www.linkedin.com/in/xuhan-zhuang/",
 				"icon": "linkedin",
 				"text": "LinkedIn"

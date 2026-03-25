@@ -4,8 +4,8 @@
 	"author": "Xuhan Zhuang",
 	"license": "LGPI-3.0",
 	"homepage": "https://zxuhan.github.io",
-	"repository": "https://github.com/zxuhan",
-	"bugs": "https://github.com/zxuhan",
+	"repository": "https://github.com/zxuhan/zxuhan.github.io",
+	"bugs": "https://github.com/zxuhan/zxuhan.github.io/issues",
 	"description": "zxuhan-homepage",
 	"scripts": {
 		"predev": "gulp build",
