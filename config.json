@@ -1,8 +1,8 @@
 {
 	"head": {
-		"title": "zxuhan7",
+		"title": "zxuhan",
 		"description": "Author:Xuhan Zhuang,Category:Personal Page",
-		"favicon": "assets/favicon.png"
+		"favicon": "./assets/favicon.png"
 	},
 	"intro": {
 		"title": "XUHAN ZHUANG",
